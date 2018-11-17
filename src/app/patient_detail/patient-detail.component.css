@@ -1,0 +1,107 @@
+.patient-detail-toolbar{
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    height: 50px;
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+}
+.patient-detail-fill-remaining{
+    flex: 1 1 auto;
+}
+.patient-detail-primary-header {
+    background: #673ab7;
+    position: relative;
+    top: 30px;
+}
+
+.patient-detail-primary-header h1 {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.patient-detail-primary-header h1 {
+    font-weight: 300;
+    margin-left: 42px;
+    padding: 28px 8px;
+    font-size: 20px;
+}
+
+mat-card.parent{
+    max-width: 100%;
+    max-height: 100%;
+    width: 600px;
+    height: 250px;
+    display:inline-block;
+}
+
+.child{
+    display:inline-block;
+    max-height: 100% !important;
+    width: 30%;
+    height: 200px !important;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+.child > div{
+    background-color: #e2e1e4;
+    height: 200px;
+}
+
+.child p{
+    font-size: 10px;
+    line-height: 80%;
+}
+
+#image_circle {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 80%;
+}
+.mat-table {
+    overflow: auto;
+    max-height: 200px;
+  }
+  .patient-card {
+    max-width: 100% !important;
+    width:225px;
+    height:250px;
+    margin-left: 20px;
+    margin-right: 0px;
+    float: left;
+  }
+  .graph-card {
+    max-width: 100% !important;
+    width:519px;
+    height:250px;
+    margin-left: 20px;
+    margin-right: 0px;
+    float: left;
+  }
+  .patient-card-notes {
+    max-width: 100% !important;
+    width:640px;
+    height:250px;
+    margin-left: 20px;
+    margin-right: 0px;
+    float: left;
+  }
+  #today_health{
+    margin-left: 0px;
+}
+
+#today_health span{
+    font-size: 10px;
+    font-family: sans-serif;
+    margin-left: 0px;
+    margin-block-start: 0px;
+    padding-left: 0px;
+}
+#patient_name{
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.graph-card .bpm {
+  width:640px;
+  height:300px;
+}

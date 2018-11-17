@@ -1,0 +1,29 @@
+    <div  style="margin-bottom:50px">
+        <mat-toolbar class="home-toolbar" color="primary">
+                    <button mat-button><mat-icon>menu</mat-icon></button>
+                    <span class="home-fill-remaining"></span>
+                    <button mat-button (click)="userService.logout()">logout</button>
+        </mat-toolbar>
+        <div class="docs-primary-header">
+            <h1>Members</h1>
+        </div>
+    </div>
+
+    <div class = "patients-grid-container">
+        <mat-grid-list cols="5">
+                    <mat-grid-tile *ngFor = "let patient of this.patientService.patients">
+                        <mat-card class="patient-card" (click) = "goToPatientDetail(patient.patientId)">
+                            <img mat-card-image id= "image_circle" src="./assets/img/icon-amit.jpg">
+                             <mat-card-content>
+                              <p id="patient_name">
+                                {{ patient.fullName }}
+                              </p>
+                              <div id="today_health">
+                                <span id = "today_health">Today  69 resting bpm</span>
+                              </div>
+                             </mat-card-content>
+                          </mat-card>
+                    </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <button mat-fab (click) = "addPatient()"color="accent" style="z-index:2;position:fixed;bottom:20px;right:20px;"><mat-icon>add</mat-icon></button>

@@ -1,0 +1,38 @@
+<div>
+    <mat-toolbar class="home-toolbar" color="primary">
+                <button mat-button><mat-icon>menu</mat-icon></button>
+                <span class="home-fill-remaining"></span>
+                <!-- <button mat-button (click)="Register()">Register</button> -->
+    </mat-toolbar>
+    <div class="docs-primary-header">
+        <h1>Login</h1>
+    </div>
+</div>
+
+<div class="login-card-container">
+    <mat-card>
+        <mat-card-content>
+            <mat-card-title>Health Common</mat-card-title>
+            <img class = "profile_image" mat-card-image src="/../../assets/img/profile_image.png">
+            <form (ngSubmit) = "loginForm.form.valid && signIn()" #loginForm = "ngForm" novalidate>
+                <mat-form-field class="login-full-width">
+                    <input  matInput name="mobile" type = "phone"
+                           placeholder="Mobile number"
+                           [(ngModel)] = "user.mobile"  #mobile = "ngModel" required>
+                    <mat-error *ngIf = "loginForm.submitted && !mobile.valid">Mobile number is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="login-full-width">
+                    <input name = "password" matInput type = "password" placeholder="Password"
+                           [(ngModel)] = "user.password" required #password = "ngModel">
+                    <mat-error *ngIf="loginForm.submitted && !password.valid">Password is required</mat-error>
+                </mat-form-field>
+                <div>
+                    <!--<a id="forgot_pass" href="http://www.google.com" mat-button color="primary">Forgot your password?</a>-->
+                    <button type = "submit" mat-raised-button color="primary" >Sign In</button>
+                </div>
+                <p>Don't have an account?<a routerLink="/register" mat-button color="primary">Create now.</a></p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+  </div>

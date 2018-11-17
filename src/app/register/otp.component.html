@@ -1,0 +1,23 @@
+<div>
+    <mat-toolbar class="home-toolbar" color="primary">   
+                <button mat-button><mat-icon>menu</mat-icon></button>
+                <span class="home-fill-remaining"></span>
+                <button mat-button (click)="Register()">Register</button>
+    </mat-toolbar>
+    <div class="docs-primary-header">
+        <h1>OTP</h1>
+    </div>
+</div>
+<mat-card>
+    <mat-card-title>Enter the otp</mat-card-title>
+    <form #otpForm = "ngForm" (ngSubmit) = "otpForm.form.valid && otp()" novalidate>
+        <mat-form-field class="registration-full-width">
+            <input matInput name="otp" type = "number" maxlength="6" minlength="6"
+                   [(ngModel)] = "otp" #OtPassword = "ngModel" placeholder="otp" required>
+            <mat-error *ngIf = "otpForm.submitted && !OtPassword.valid">Correct otp is required!</mat-error>
+            <mat-error *ngIf = "otpForm.submitted">  </mat-error>
+        </mat-form-field>
+        <button type = "submit" mat-raised-button color= "primary">submit</button>
+            <p>Din't recieve OTP?<a mat-button color="primary">Send again</a></p>
+    </form>
+</mat-card>

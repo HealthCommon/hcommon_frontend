@@ -1,0 +1,49 @@
+.home-toolbar{
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    height: 50px;
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+}
+.home-toolbar-title{
+    font-size:16px;
+}
+.home-fill-remaining{
+    flex: 1 1 auto;
+}
+.docs-primary-header {
+    background: #673ab7;
+    position: relative;
+    top: 30px;
+}
+.docs-primary-header h1 {
+    color: rgba(255, 255, 255, 0.87);
+}
+.docs-primary-header h1 {
+    font-weight: 300;
+    margin-left: 42px;
+    padding: 28px 8px;
+    font-size: 20px;
+}
+.login-card-container {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 50px;
+}  
+img {
+      background-color: gray;
+      margin-top:8px;
+}
+.login-full-width {
+        width: 100%;
+    }
+p {
+    font-size: 12px;
+}
+#forgot_pass {
+    margin-left: 0px;
+}
+.profile_image{
+      width: 70px;
+      height: 70px;
+}

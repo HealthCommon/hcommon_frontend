@@ -1,0 +1,89 @@
+<link href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css" rel="stylesheet" type="text/css" />
+<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+<div style="margin-bottom:50px">
+    <mat-toolbar class="patient-detail-toolbar" color="primary">
+                <button mat-button><mat-icon>menu</mat-icon></button>
+                <span class="patient-detail-fill-remaining"></span>
+                <button mat-button (click)="this.userService.logout()">logout</button>
+    </mat-toolbar>
+    <div class="patient-detail-primary-header">
+        <h1>Member Details</h1>
+    </div>
+</div>
+<div>
+        <mat-card class="patient-card">
+            <img mat-card-image id= "image_circle" src="./assets/img/icon-amit.jpg">
+             <mat-card-content>
+              <p id="patient_name">
+                {{ this.patientService.patient.fullName }}
+              </p>
+              <div id="today_health">
+                <span id = "today_health">Today  69 resting bpm</span>
+              </div>
+             </mat-card-content>
+        </mat-card>
+        <mat-card class="patient-card">
+
+             <mat-card-content>
+                    <div>
+                        <p class="patient-detail-text"><span>Name:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="">{{ this.patientService.patient.fullName }}</span></p>
+                        <div style="height: 1px; background: #F87431; overflow: hidden;"></div>
+                        <p class="patient-detail-text"><span>Age:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="">{{ this.patientService.patient.age }}</span></p>
+                        <div style="height: 1px; background: #F87431; overflow: hidden;"></div>
+                        <p class="patient-detail-text"><span>Gender:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="">{{ this.patientService.patient.gender }}</span></p>
+                        <div style="height: 1px; background: #F87431; overflow: hidden;"></div>
+                        <p class="patient-detail-text"><span>Weight:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="">{{ this.patientService.patient.weight }}</span></p>
+                        <div style="height: 1px; background: #F87431; overflow: hidden;"></div>
+                        <p class="patient-detail-text"><span>Height:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="">{{ this.patientService.patient.height }}</span></p>
+                        <div style="height: 1px; background: #F87431; overflow: hidden;"></div>
+                        <p class="patient-detail-text"><span>Disease:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ this.patientService.patient.disease }}</span></p>
+                        <div style="height: 1px; background: #F87431; overflow: hidden;"></div>
+
+                    </div>
+             </mat-card-content>
+          </mat-card>
+          <mat-card class="patient-card-notes">
+            <mat-card-content><mat-icon color="primary" style="position:absolute;z-index:2;cursor:pointer;top:46px;right:25px;">cloud_upload</mat-icon>
+            <mat-tab-group style="">
+              <mat-tab label="Document center">
+
+                      <mat-table #table [dataSource]="dataSource">
+
+                          <ng-container matColumnDef="docuName">
+                            <mat-header-cell *matHeaderCellDef> File Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.docuName}} </mat-cell>
+                          </ng-container>
+
+
+                          <ng-container matColumnDef="reportDate">
+                            <mat-header-cell *matHeaderCellDef> Report Date</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.reportDate}}</mat-cell>
+                          </ng-container>
+
+
+                          <ng-container matColumnDef="verified">
+                            <mat-header-cell *matHeaderCellDef> Verified </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.verified}} </mat-cell>
+                          </ng-container>
+                          <ng-container matColumnDef="download">
+                            <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <mat-icon color="primary" style="cursor:pointer;">cloud_download</mat-icon></mat-cell>
+                          </ng-container>
+
+                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+                
+              </mat-tab>
+            <!--  <mat-tab label="Notes">
+
+            </mat-tab> -->
+              </mat-tab-group>
+            </mat-card-content>
+          </mat-card>
+
+
+            <mat-card class="graph-card bpm">
+              <div id="heartbeat"><svg width="500" height="200"></svg></div>
+            </mat-card>
+  </div>

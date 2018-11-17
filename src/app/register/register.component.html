@@ -1,0 +1,41 @@
+<div>
+    <mat-toolbar class="home-toolbar" color="primary">
+                <button mat-button><mat-icon>menu</mat-icon></button>
+                <span class="home-fill-remaining"></span>
+                <button mat-button (click)="Login()">Login</button>
+    </mat-toolbar>
+    <div class="docs-primary-header">
+        <h1>Registration</h1>
+    </div>
+</div>
+<div class="registration-card-container">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Registration Form</mat-card-title>
+                <form #registrationForm = "ngForm" (ngSubmit) = "registrationForm.form.valid && registerUser()" novalidate>
+                    <mat-form-field class="registration-full-width">
+                        <input matInput name="fullName" type = "text" [(ngModel)] = "user.fullName" #fullName = "ngModel"  placeholder="Full name" required>
+                        <mat-error *ngIf = "registrationForm.submitted && !fullName.valid">Name is required!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="registration-full-width">
+                            <input matInput name="mobile" type = "number" [(ngModel)] = "user.mobile" #mobile = "ngModel" placeholder="Mobile number" required>
+                            <mat-error *ngIf = "registrationForm.submitted && !mobile.valid">Mobile number is required!</mat-error>
+                        </mat-form-field>
+                    <mat-form-field class="registration-full-width">
+                        <input  matInput  name = "password" type = "password" [(ngModel)] = "user.password" #password = "ngModel" placeholder="Password" required>
+                        <mat-error *ngIf = "registrationForm.submitted && !password.valid">Password is required!</mat-error>
+                    </mat-form-field>
+               <mat-form-field class="registration-full-width">
+                    <input matInput name = "confirmPassword" type = "password" [(ngModel)] = "confPassword" #confirmPassword = "ngModel" placeholder="Confirm password" required>
+                    <mat-error *ngIf = "registrationForm.submitted && !confirmPassword.valid">Confirm password required!</mat-error>
+              </mat-form-field>
+              <div *ngIf = "confirmPassword.valid && !ifPasswordMatched()" #passwordNotMatched>
+                <mat-error>Confirm-password should match with password!</mat-error>
+              </div>
+                <div>
+                    <button type = "submit" mat-raised-button color="primary">Register</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+      </div>

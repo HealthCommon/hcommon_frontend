@@ -1,0 +1,48 @@
+<div>
+    <mat-toolbar class="add-patient-toolbar" color="primary">
+                <button mat-button><mat-icon>menu</mat-icon></button>
+                <span class="add-patient-fill-remaining"></span>
+                <button mat-button (click)="userService.logout()">logout</button>
+    </mat-toolbar>
+    <div class="add-patient-primary-header">
+        <h1>Add Member</h1>
+    </div>
+    </div>
+
+<div class="add-patient-card-container">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Add Member Form</mat-card-title>
+                <form #addPatientForm = "ngForm" (ngSubmit) = "addPatientForm.form.valid && addPatient()" novalidate>
+                    <mat-form-field class="registration-full-width">
+                        <input matInput name="fullName" type = "text" [(ngModel)] = "patient.fullName" #fullName = "ngModel"  placeholder="Patient name" required>
+                        <mat-error *ngIf = "addPatientForm.submitted && !fullName.valid">Patient's name is required!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="registration-full-width">
+                            <input matInput name="age" type = "number" [(ngModel)] = "patient.age" #age = "ngModel" placeholder="Age" required>
+                            <mat-error *ngIf = "addPatientForm.submitted && !age.valid">Patient's age is required!</mat-error>
+                        </mat-form-field>
+                    <mat-form-field class="registration-full-width">
+                        <input  matInput  name = "gender" type = "text" [(ngModel)] = "patient.gender" #gender = "ngModel" placeholder="Gender" required>
+                        <mat-error *ngIf = "addPatientForm.submitted && !gender.valid">Patient's gender is required!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="registration-full-width">
+                        <input matInput name = "weight" type = "text" [(ngModel)] = "patient.weight" #weight = "ngModel" placeholder="Weight in kg" required>
+                        <mat-error *ngIf = "addPatientForm.submitted && !weight.valid" >Patient's weight is required!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="registration-full-width">
+                            <input matInput name = "height" type = "text" [(ngModel)] = "patient.height" #height = "ngModel" placeholder="Height" required>
+                            <mat-error *ngIf = "addPatientForm.submitted && !height.valid" >Patient's Height is required!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="registration-full-width">
+                            <textarea matInput name = "disease" type = "text" [(ngModel)] = "patient.disease" #disease = "ngModel" placeholder="Critical Disease" required></textarea>
+                            <mat-error *ngIf = "addPatientForm.submitted && !disease.valid" >Patient's critical Disease is required!</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button type = "submit" mat-raised-button color="primary">Add</button>
+
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+</div>
